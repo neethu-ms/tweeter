@@ -1,0 +1,43 @@
+input{
+  background-color:rgb(12, 57, 141);
+  color: white;
+  padding:10px;
+  position: absolute;
+  left:0;
+}
+
+form{
+  width:100%;
+  position: relative;
+  /* display: flex;
+  align-items: center; */
+}
+textarea{
+  border: 0px solid white;
+  border-bottom: 2px solid black;
+  width:100%;
+  background-color: #f4f1ec;
+ 
+  
+  
+}
+
+new-tweet{
+  /* display: flex;
+  align-items: center; */
+}
+ 
+section{
+  text-align: center;
+}
+
+form{
+  display: inline-block;
+  margin-left: 5%;
+
+}
+
+ form > span{
+  position: absolute;
+  right:0;
+ }
