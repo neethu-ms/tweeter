@@ -12,6 +12,7 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
  
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -21,14 +22,32 @@
   </head>
 
   <body>
-    <header>
+   
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>TWEETER</span>
-      <span id="write">Write a new tweet</span>
+      <span id="headerText">Write a new tweet</span>
     </nav>
+    <header>
+
+    <div>
+      <img src="/images/profile-hex.png">
+    </div>
+    <br>
+    <div>
+      <h2>Neethu M S</h2>
+    </div>
   </header>
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form method="post" action="/tweets/"> 
+          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <input type="submit" value="Tweet">
+          <span class="counter">140</span>
+        </form>
+      </section>
+    </main>
   </body>
 </html>

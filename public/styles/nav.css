@@ -12,14 +12,15 @@ nav>span {
 nav {
   background-color: #4056A1;
   color: #FFFFFF;
-  position: fixed;
+  position: sticky;
   height: 120px;
   width: 100%;
   z-index: 1;
   padding:1.5em;
   /*margin: 1.5em;*/
+  
 }
 
-#write {
+#headerText {
   float:right; 
 }

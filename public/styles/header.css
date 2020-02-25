@@ -1,0 +1,22 @@
+header{
+  height: 400px;
+  width: 100%;
+  position:relative;
+  background-color: #cc8800;
+  position: relative;
+  
+}
+
+img{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+   
+    
+  }
+
+  h2{
+   text-align: center;
+  }
+
+ 
