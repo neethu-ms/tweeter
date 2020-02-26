@@ -23,7 +23,8 @@ const data = [
     "user": {
       "name": "Descartes",
       "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
+      "handle": "@rd"
+    },
     "content": {
       "text": "Je pense , donc je suis"
     },
@@ -31,30 +32,30 @@ const data = [
   }
 ];
 
-const findNumberOfDays = function(postedTime) {
+const findNumberOfDays = function (postedTime) {
   const currentTime = Date.now();
   let difference = currentTime - postedTime;
   let days = (difference / (1000 * 60 * 60 * 24)).toFixed();
   return days;
 };
 
-const renderTweets = function(tweets) {
-// loops through tweets
+const renderTweets = function (tweets) {
+  // loops through tweets
   console.log('rendering');
   console.log('rendering');
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
   for (let tweet of tweets) {
     let createdTweet = createTweetElement(tweet);
-    console.log("createdTweet=",$(createdTweet).text);
+    console.log("createdTweet=", $(createdTweet).text);
     console.log($(createdTweet));
     $("#tweetContainer").append(createdTweet);
   }
 
 };
 
-const createTweetElement = function(tweet) {
-  
+const createTweetElement = function (tweet) {
+
   let $article = $('<article></article>');
   let $header = $('<header></header>');
   let $divImage = $("<div></div>");
@@ -96,27 +97,46 @@ const createTweetElement = function(tweet) {
   return $article;
 };
 
-const postTweets = function() {
-  $("form").on("submit", function(event) {
+
+const postTweets = function () {
+  $("form").on("submit", function (event) {
+
     event.preventDefault();
-    console.log("this",$(this).serialize());
+    const data = $(this).serialize();
+    if (data.substring(5) === undefined || data.substring(5) === null) {
+      alert('Invalid data. Please enter a value of length between 1 and 140');
+      return;
+    } else if (data.substring(5) === "") {
+      alert('Tweet cannot be empty. Please enter a value of length between 1 and 140');
+      return;
+    } else if (data.substring(5).length >= 140) {
+      alert('Too long. Please enter a value of length between 1 and 140');
+      return;
+    }
+
+
+    //console.log("this",$(this).serialize());
 
     const url = "/tweets";
-    const data = $(this).serialize();
+
+
 
     $.ajax({
       type: "POST",
       url: url,
       data: data,
-      success: (data) => console.log(data)
+      success: (data) => loadtweets()
     });
+
+
   });
+
 };
 
-const loadtweets = function() {
+const loadtweets = function () {
   $.ajax({
+    type: "GET",
     url: "/tweets",
-    data: data,
     success: renderTweets,
     dataType: "json"
   });

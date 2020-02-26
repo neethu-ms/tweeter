@@ -37,6 +37,7 @@
 
 .tweetMessage {
   padding-top: 50px;
+  
 }
 
 hr {
@@ -47,8 +48,9 @@ hr {
 }
 
 .tweetMessage > p {
+
   padding-bottom: 50px;
-  ;
+  width:100%;
 }
 
 #tweetContainer>article>footer {
