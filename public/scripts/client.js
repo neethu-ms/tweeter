@@ -1,3 +1,5 @@
+
+
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
@@ -95,6 +97,27 @@ const createTweetElement = function(tweet) {
   return $article;
 };
 
+function postTweets() {
+  $("form").on("submit", function(event) {
+    event.preventDefault();
+    console.log("this",$(this).serialize());
+
+    const url = "/tweets";
+    const data = $(this).serialize();
+
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: data,
+      success: (data) => console.log(data)
+     });
+  });
+}
+
+
 $(document).ready(() => {
+  
   renderTweets(data);
+  postTweets();
+  
 });
