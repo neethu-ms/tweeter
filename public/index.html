@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
- 
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -30,10 +31,10 @@
       <span>TWEETER</span>
       <span id="headerText">Write a new tweet</span>
     </nav>
-    <header>
+    <header id="profile-header">
 
     <div>
-      <img src="/images/profile-hex.png">
+      <img id="profile-img" src="/images/profile-hex.png">
     </div>
     <br>
     <div>
@@ -51,6 +52,30 @@
           <input type="submit" value="Tweet">
           <span class="counter">140</span>
         </form>
+        <section id="tweetContainer">
+          <article>
+            <header>
+              <div class="image-details">
+              <img src="https://i.imgur.com/nlhLi3I.png" height="100px" width="100px">
+              <p>Newton</p>
+            </div>
+              <p class="tweetId">@Newton</p>
+            </header>
+            <div class="tweetMessage"> 
+            <p>hello, how are you ?</p>
+            <hr/>
+            </div>
+            
+            <footer class="footer-details">
+             <p>10 days ago</p>
+             <div>
+              <i class="fa fa-flag"></i>
+              <i class="fa fa-retweet"></i>
+              <i class="fa fa-heart"></i>
+            </div>
+            </footer>
+          </article>
+        </section>
       </section>
     </main>
   </body>
