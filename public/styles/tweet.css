@@ -1,10 +1,21 @@
 #tweetContainer {
   margin-left: 5%;
   margin-top: 100px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   width: 100%;
   padding: 20px;
   margin-bottom: 100px;
+}
+
+.tweet{
+ 
+    margin-left: 5%;
+    margin-top: 100px;
+     border: 2px solid black; 
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 100px;
+  
 }
 
 #tweetContainer>article>header {
@@ -17,6 +28,12 @@
 .image-details {
   display: flex;
   align-items: center;
+  
+}
+
+.image-details p{
+   padding-left: 20px;
+  
 }
 
 .tweetMessage {
@@ -30,7 +47,7 @@ hr {
   background-color: black;
 }
 
-.tweetMessage>p {
+.tweetMessage > p {
   padding-bottom: 50px;
   ;
 }
@@ -41,15 +58,6 @@ hr {
   justify-content: space-between;
 }
 
-/* #tweetContainer > article > footer > div{
-  text-align: right;
-  padding-right:5%;
-}
-
-#tweetContainer > article > footer > p{
-  text-align: left;
-  padding-left: 5%;
-   */
 
 i {
   color: blue;
@@ -60,7 +68,7 @@ i {
   color: #f4f1ec;
 }
 
-#tweetContainer:hover   {
+article:hover   {
   box-shadow: 10px 10px #888888;
   
   
@@ -71,4 +79,4 @@ i {
     background-color: #f4f1ec;
     color:	#808080;
   }
-}
+
