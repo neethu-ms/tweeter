@@ -1,13 +1,4 @@
-* {
-  box-sizing: 'border-box';
-  margin: 0px;
-  padding: 0px;
-}
-
-nav>span {
-  font-family: 'Bungee', 'sans-serif';
-  font-weight: 700;
-}
+/* global styles */
 
 nav {
   background-color: #4056A1;
@@ -16,11 +7,54 @@ nav {
   height: 120px;
   width: 100%;
   z-index: 1;
-  padding:1.5em;
-  /*margin: 1.5em;*/
-  
+  padding: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  top: 0;
 }
 
-#headerText {
-  float:right; 
+nav>span {
+  font-family: 'Bungee', 'sans-serif';
+  font-weight: 700;
 }
+
+/* Animating button in navbar starts*/
+
+#toggleButton {
+  color: orange;
+  bottom: 0;
+  animation: bounce 0.7s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  -webkit-animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 20px, 0);
+  }
+}
+
+#toggleButton:hover {
+  background-color: blanchedalmond;
+  cursor: pointer;
+}
+
+
+
+/*To align the toggle button and the corresponding text*/
+
+#headerText {
+  float: right;
+}
+
+.compose {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Animating button in navbar ends*/

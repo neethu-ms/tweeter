@@ -5,33 +5,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
-
+ 
 const findNumberOfDays = function(postedTime) {
   const currentTime = Date.now();
   let difference = currentTime - postedTime;
@@ -39,6 +13,8 @@ const findNumberOfDays = function(postedTime) {
   return days;
 };
 
+
+//Rendering tweets
 const renderTweets = function(tweets) {
   // loops through tweets
   console.log('rendering');
@@ -55,8 +31,8 @@ const renderTweets = function(tweets) {
 
 };
 
+// Creating html code for tweet
 const createTweetElement = function(tweet) {
-
   let $article = $('<article></article>');
   let $header = $('<header></header>');
   let $divImage = $("<div></div>");
@@ -72,7 +48,6 @@ const createTweetElement = function(tweet) {
   let $hr = $("<hr/>");
   let daysAgo = findNumberOfDays(tweet['created_at']);
   let daysAgoContent = `${daysAgo} days ago`;
-
   $article.addClass("tweet");
   $article.append($header);
   $divImage.addClass('image-details');
@@ -98,52 +73,43 @@ const createTweetElement = function(tweet) {
   return $article;
 };
 
-
+// post tweets
 const postTweets = function() {
   $("form").on("submit", function(event) {
-
     event.preventDefault();
-   
     const data = $(this).serialize();
     $("#error").hide();
+    /* Doing validations */
     if (data.substring(5) === undefined || data.substring(5) === null) {
       $("#error").text('Invalid data. Please enter a value of length between 1 and 140');
       $("#error").show();
-      //lert('Invalid data. Please enter a value of length between 1 and 140');
       return;
     } else if (data.substring(5) === "") {
       $("#error").text('Tweet cannot be empty. Please enter a value of length between 1 and 140');
       $("#error").show();
-      //alert('Tweet cannot be empty. Please enter a value of length between 1 and 140');
       return;
     } else if (data.substring(5).length >= 140) {
       $("#error").text('Too long. Please enter a value of length between 1 and 140');
       $("#error").show();
-      //alert('Too long. Please enter a value of length between 1 and 140');
       return;
     }
-
-
-    //console.log("this",$(this).serialize());
-
+    /* Doing validations */
+    
     const url = "/tweets";
-
     $(".new-tweet").slideUp();
-
     $.ajax({
       type: "POST",
       url: url,
       data: data,
       success: (data) => {
         loadtweets(); $("new-tweet").slideUp();
+        $("textarea").val('');
       }
     });
-
-
   });
-
 };
 
+//Load tweets
 const loadtweets = function() {
   $.ajax({
     type: "GET",
@@ -153,21 +119,16 @@ const loadtweets = function() {
   });
 };
 
+//Toggling function
 const toggle = function() {
-
- $(".new-tweet").slideUp(); 
+  $(".new-tweet").slideUp();
   $("#toggleButton").click(() =>
     $(".new-tweet").slideToggle("slow")
   );
 };
 
-/* function disableElements() {
-  $("new-tweet").hide();
-} */
-
+// Functions to be called after document is ready
 $(document).ready(() => {
-  // $("new-tweet").slideUp();
- 
   $("error").hide();
   loadtweets();
   postTweets();

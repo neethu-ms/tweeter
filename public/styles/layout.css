@@ -3,16 +3,20 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
 
 /*
  * Global layout stuff
  */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0px;
+  padding: 0px;
+}
 
 body {
   color: #545149;
@@ -21,35 +25,29 @@ body {
   font-family: 'Source Sans Pro', 'sans-serif';
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+main {
+  width: 90%;
+}
 
- main {
-   width: 90%;
-   /*text-align: center;*/
- }
+/* Container for creating new tweet and displaying tweets*/
 
- .parentContainer{
-     display:block;
+.profileContainer {
+  display: block;
+}
 
- }
+/* Display style for desktop */
 
- @media (min-width:1024px){
-
-  .parentContainer{
-    display:flex;
-    padding: 30px;
+@media (min-width:1024px) {
+  .profileContainer {
+    display: flex;
+    padding: 5%;
     justify-content: space-between;
     margin-right: 5%;
-    margin-left:5%;
+    margin-left: 5%;
   }
-
-   main{
-     width: 100%;
-     align-self: flex-end;
-     margin-left: 5%;
-   }
-
-
- }
+  main {
+    width: 100%;
+    align-self: flex-end;
+    margin-left: 5%;
+  }
+}

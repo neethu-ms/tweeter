@@ -13,7 +13,5 @@ $(document).ready(function() {
     } else {
       $($(this).siblings('.counter')).text(counter);
     }
-
-   
-  });
+});
 });

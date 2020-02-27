@@ -1,0 +1,94 @@
+
+/* global style */
+hr {
+  width: 100%;
+  align-items: center;
+  height: 2px;
+  background-color: black;
+}
+
+i {
+  color: blue;
+}
+
+article:hover {
+  box-shadow: 10px 10px #888888;
+}
+/* Tweets Container style*/
+
+#tweetContainer {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 50px;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 100px;
+}
+
+/* article style */
+
+.tweet {
+  margin-top: 100px;
+  border: 2px solid black;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 100px;
+}
+
+
+
+
+/* Article header style */
+#tweetContainer > article > header {
+  display: flex;
+  padding-top: 1%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Article image container*/
+.image-details {
+  display: flex;
+  align-items: center;
+}
+
+/* Article image text */
+.image-details p {
+  padding-left: 20px;
+}
+
+/* Tweet Message */
+.tweetMessage {
+  padding-top: 50px;
+}
+
+.tweetMessage > p {
+  padding-bottom: 50px;
+  width: 100%;
+}
+
+/* Article footer*/
+#tweetContainer > article > footer {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Tweet id */
+.tweetId {
+  background-color: #f4f1ec;
+  color: #f4f1ec;
+}
+
+
+#tweetContainer:hover > .tweetId {
+  background-color: #f4f1ec;
+  color: #808080;
+}
+
+/* For desktop */
+@media(min-width:1024px) {
+  #tweetContainer {
+    margin-top: 0px;
+  }
+}
