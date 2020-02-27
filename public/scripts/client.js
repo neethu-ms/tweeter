@@ -103,16 +103,23 @@ const postTweets = function() {
   $("form").on("submit", function(event) {
 
     event.preventDefault();
-    $(".new-tweet").slideUp();
+   
     const data = $(this).serialize();
+    $("#error").hide();
     if (data.substring(5) === undefined || data.substring(5) === null) {
-      alert('Invalid data. Please enter a value of length between 1 and 140');
+      $("#error").text('Invalid data. Please enter a value of length between 1 and 140');
+      $("#error").show();
+      //lert('Invalid data. Please enter a value of length between 1 and 140');
       return;
     } else if (data.substring(5) === "") {
-      alert('Tweet cannot be empty. Please enter a value of length between 1 and 140');
+      $("#error").text('Tweet cannot be empty. Please enter a value of length between 1 and 140');
+      $("#error").show();
+      //alert('Tweet cannot be empty. Please enter a value of length between 1 and 140');
       return;
     } else if (data.substring(5).length >= 140) {
-      alert('Too long. Please enter a value of length between 1 and 140');
+      $("#error").text('Too long. Please enter a value of length between 1 and 140');
+      $("#error").show();
+      //alert('Too long. Please enter a value of length between 1 and 140');
       return;
     }
 
@@ -121,7 +128,7 @@ const postTweets = function() {
 
     const url = "/tweets";
 
-
+    $(".new-tweet").slideUp();
 
     $.ajax({
       type: "POST",
@@ -148,7 +155,7 @@ const loadtweets = function() {
 
 const toggle = function() {
 
-  $(".new-tweet").slideUp();
+ $(".new-tweet").slideUp(); 
   $("#toggleButton").click(() =>
     $(".new-tweet").slideToggle("slow")
   );
@@ -159,7 +166,9 @@ const toggle = function() {
 } */
 
 $(document).ready(() => {
-  $("new-tweet").slideUp();
+  // $("new-tweet").slideUp();
+ 
+  $("error").hide();
   loadtweets();
   postTweets();
   toggle();

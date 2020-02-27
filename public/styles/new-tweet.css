@@ -29,6 +29,16 @@ new-tweet{
  
 new-tweet{
   text-align: center;
+  display:none;
+}
+
+#error{
+   margin: 5%;
+   border: 2px solid red;
+   color:red;
+   padding:5%;
+   width:100%;
+   display:none;
 }
 
 form{
