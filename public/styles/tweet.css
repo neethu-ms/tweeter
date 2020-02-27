@@ -1,5 +1,6 @@
 #tweetContainer {
   margin-left: 5%;
+  margin-right:5%;
   margin-top: 100px;
   width: 100%;
   padding: 20px;
@@ -8,7 +9,7 @@
 
 .tweet{
  
-    margin-left: 5%;
+ 
     margin-top: 100px;
      border: 2px solid black; 
     width: 100%;

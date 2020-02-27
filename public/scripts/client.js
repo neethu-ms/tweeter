@@ -32,17 +32,18 @@ const data = [
   }
 ];
 
-const findNumberOfDays = function (postedTime) {
+const findNumberOfDays = function(postedTime) {
   const currentTime = Date.now();
   let difference = currentTime - postedTime;
   let days = (difference / (1000 * 60 * 60 * 24)).toFixed();
   return days;
 };
 
-const renderTweets = function (tweets) {
+const renderTweets = function(tweets) {
   // loops through tweets
   console.log('rendering');
   console.log('rendering');
+  $("#tweetContainer").empty();
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
   for (let tweet of tweets) {
@@ -54,7 +55,7 @@ const renderTweets = function (tweets) {
 
 };
 
-const createTweetElement = function (tweet) {
+const createTweetElement = function(tweet) {
 
   let $article = $('<article></article>');
   let $header = $('<header></header>');
@@ -98,10 +99,11 @@ const createTweetElement = function (tweet) {
 };
 
 
-const postTweets = function () {
-  $("form").on("submit", function (event) {
+const postTweets = function() {
+  $("form").on("submit", function(event) {
 
     event.preventDefault();
+    $(".new-tweet").slideUp();
     const data = $(this).serialize();
     if (data.substring(5) === undefined || data.substring(5) === null) {
       alert('Invalid data. Please enter a value of length between 1 and 140');
@@ -125,7 +127,9 @@ const postTweets = function () {
       type: "POST",
       url: url,
       data: data,
-      success: (data) => loadtweets()
+      success: (data) => {
+        loadtweets(); $("new-tweet").slideUp();
+      }
     });
 
 
@@ -133,7 +137,7 @@ const postTweets = function () {
 
 };
 
-const loadtweets = function () {
+const loadtweets = function() {
   $.ajax({
     type: "GET",
     url: "/tweets",
@@ -142,7 +146,21 @@ const loadtweets = function () {
   });
 };
 
+const toggle = function() {
+
+  $(".new-tweet").slideUp();
+  $("#toggleButton").click(() =>
+    $(".new-tweet").slideToggle("slow")
+  );
+};
+
+/* function disableElements() {
+  $("new-tweet").hide();
+} */
+
 $(document).ready(() => {
+  $("new-tweet").slideUp();
   loadtweets();
   postTweets();
+  toggle();
 });

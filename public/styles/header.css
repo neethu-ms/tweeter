@@ -7,6 +7,30 @@
   
 }
 
+#toggleButton {
+  color:orange;
+  bottom:0; 
+  animation: bounce 0.7s; 
+  animation-direction: alternate; 
+  animation-iteration-count: infinite;
+  -webkit-animation:bounce 1s infinite;
+}
+
+@keyframes bounce { 
+  from { 
+      transform: translate3d(0, 0, 0); 
+  } 
+  to { 
+      transform: translate3d(0, 20px, 0); 
+  } 
+} 
+
+#toggleButton:hover{
+  padding:5px;
+  background-color: blanchedalmond;
+  cursor:pointer;
+}
+
 #profile-img{
       display: block;
       margin-left: auto;
@@ -19,4 +43,13 @@
    text-align: center;
   }
 
- 
+  .compose{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-bar{
+    display: flex;
+    justify-content: space-between;
+  }
