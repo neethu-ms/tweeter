@@ -1,7 +1,7 @@
 #tweetContainer {
   margin-left: 5%;
   margin-right:5%;
-  margin-top: 100px;
+  margin-top: 50px;
   width: 100%;
   padding: 20px;
   margin-bottom: 100px;
@@ -82,3 +82,4 @@ article:hover   {
     color:	#808080;
   }
 
+ 

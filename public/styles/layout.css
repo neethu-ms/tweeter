@@ -29,3 +29,27 @@ body {
    width: 90%;
    /*text-align: center;*/
  }
+
+ .parentContainer{
+     display:block;
+
+ }
+
+ @media (min-width:1024px){
+
+  .parentContainer{
+    display:flex;
+    padding: 30px;
+    justify-content: space-between;
+    margin-right: 5%;
+    margin-left:5%;
+  }
+
+   main{
+     width: 100%;
+     align-self: flex-end;
+     margin-left: 5%;
+   }
+
+
+ }
