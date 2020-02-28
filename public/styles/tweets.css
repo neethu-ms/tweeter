@@ -8,11 +8,16 @@ hr {
 }
 
 i {
+  color: #f4f1ec;
+}
+
+article:hover i {
   color: blue;
 }
 
 article:hover {
   box-shadow: 10px 10px #888888;
+  
 }
 /* Tweets Container style*/
 
@@ -82,7 +87,7 @@ article:hover {
 }
 
 
-#tweetContainer:hover > .tweetId {
+article:hover  .tweetId {
   background-color: #f4f1ec;
   color: #808080;
 }

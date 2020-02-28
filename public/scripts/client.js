@@ -4,8 +4,6 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
-
 const findNumberOfDays = function(postedTime) {
   const currentTime = Date.now();
   let difference = currentTime - postedTime;
@@ -13,26 +11,19 @@ const findNumberOfDays = function(postedTime) {
   return days;
 };
 
-
-
 //Rendering tweets
 const renderTweets = function(tweets) {
   // loops through tweets
   $("#tweetContainer").empty();
-
-
   // sorting tweets based on created
   tweets.sort((a, b) => {
     return b['created_at'] - a['created_at'];
   });
-
-
   for (let tweet of tweets) {
     let createdTweet = createTweetElement(tweet);
 
     $("#tweetContainer").append(createdTweet);
   }
-
 };
 
 // Creating html code for tweet
@@ -72,8 +63,6 @@ const createTweetElement = function(tweet) {
   $divFooter.append($i);
   $footer.append($divFooter);
   $article.append($footer);
-
-
   return $article;
 };
 
