@@ -26,7 +26,7 @@ nav > span {
 
 /* Animating button in navbar starts*/
 
-#toggleButton {
+#toggle-button {
   padding:7px;
   color: orange;
   bottom: 0;
@@ -45,16 +45,14 @@ nav > span {
   }
 }
 
-#toggleButton:hover {
+#toggle-button:hover {
   background-color: blanchedalmond;
   cursor: pointer;
 }
 
-
-
 /*To align the toggle button and the corresponding text*/
 
-#headerText {
+#header-text {
   float: right;
 }
 

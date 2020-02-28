@@ -21,7 +21,7 @@ article:hover {
 }
 /* Tweets Container style*/
 
-#tweetContainer {
+#tweet-container {
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 50px;
@@ -44,7 +44,7 @@ article:hover {
 
 
 /* Article header style */
-#tweetContainer > article > header {
+#tweet-container > article > header {
   display: flex;
   padding-top: 1%;
   justify-content: space-between;
@@ -63,38 +63,38 @@ article:hover {
 }
 
 /* Tweet Message */
-.tweetMessage {
+.tweet-message {
   padding-top: 50px;
 }
 
-.tweetMessage > p {
+.tweet-message > p {
   padding-bottom: 50px;
   width: 100%;
   word-wrap: break-word;
 }
 
 /* Article footer*/
-#tweetContainer > article > footer {
+#tweet-container > article > footer {
   padding-top: 50px;
   display: flex;
   justify-content: space-between;
 }
 
 /* Tweet id */
-.tweetId {
+.tweet-id {
   background-color: #f4f1ec;
   color: #f4f1ec;
 }
 
 
-article:hover  .tweetId {
+article:hover  .tweet-id {
   background-color: #f4f1ec;
   color: #808080;
 }
 
 /* For desktop */
 @media(min-width:1024px) {
-  #tweetContainer {
+  #tweet-container {
     margin-top: 0px;
   }
  

@@ -31,14 +31,14 @@ main {
 
 /* Container for creating new tweet and displaying tweets*/
 
-.profileContainer {
+.profile-container {
   display: block;
 }
 
 /* Display style for desktop */
 
 @media (min-width:1024px) {
-  .profileContainer {
+  .profile-container {
     display: flex;
     padding: 5%;
     justify-content: space-between;

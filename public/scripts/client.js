@@ -4,7 +4,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-const findNumberOfDays = function(postedTime) {
+const findNumberOfDays = function (postedTime) {
   const currentTime = Date.now();
   let difference = currentTime - postedTime;
   let days = (difference / (1000 * 60 * 60 * 24)).toFixed();
@@ -12,9 +12,9 @@ const findNumberOfDays = function(postedTime) {
 };
 
 //Rendering tweets
-const renderTweets = function(tweets) {
+const renderTweets = function (tweets) {
   // loops through tweets
-  $("#tweetContainer").empty();
+  $("#tweet-container").empty();
   // sorting tweets based on created
   tweets.sort((a, b) => {
     return b['created_at'] - a['created_at'];
@@ -22,12 +22,12 @@ const renderTweets = function(tweets) {
   for (let tweet of tweets) {
     let createdTweet = createTweetElement(tweet);
 
-    $("#tweetContainer").append(createdTweet);
+    $("#tweet-container").append(createdTweet);
   }
 };
 
 // Creating html code for tweet
-const createTweetElement = function(tweet) {
+const createTweetElement = function (tweet) {
   let $article = $('<article></article>');
   let $header = $('<header></header>');
   let $divImage = $("<div></div>");
@@ -50,10 +50,10 @@ const createTweetElement = function(tweet) {
   $divImage.append($img);
   $pImage.text(tweet["user"].name);
   $divImage.append($pImage);
-  $pTweetId.addClass("tweetId");
+  $pTweetId.addClass("tweet-id");
   $pTweetId.text(tweet["user"].handle);
   $header.append($pTweetId);
-  $divTweetBody.addClass('tweetMessage');
+  $divTweetBody.addClass('tweet-message');
   $pTweetMessage.text(tweet["content"]["text"]);
   $divTweetBody.append($pTweetMessage);
   $divTweetBody.append($hr);
@@ -67,8 +67,8 @@ const createTweetElement = function(tweet) {
 };
 
 // post tweets
-const postTweets = function() {
-  $("form").on("submit", function(event) {
+const postTweets = function () {
+  $("form").on("submit", function (event) {
     event.preventDefault();
     const data = $(this).serialize();
     $("#error").hide();
@@ -98,15 +98,15 @@ const postTweets = function() {
         loadtweets(); $("new-tweet").slideUp();
         $("textarea").val('');
         $(".counter").text(140);
-        $(".counter").css("color","black");
-        
+        $(".counter").css("color", "black");
+
       }
     });
   });
 };
 
 //Load tweets
-const loadtweets = function() {
+const loadtweets = function () {
   $.ajax({
     type: "GET",
     url: "/tweets",
@@ -116,14 +116,14 @@ const loadtweets = function() {
 };
 
 //Toggling function
-const toggle = function() {
+const toggle = function () {
   $(".new-tweet").slideUp();
-  $("#toggleButton").click(() => {
+  $("#toggle-button").click(() => {
     $(".new-tweet").slideToggle("slow");
     $(".counter").text(140);
     $("textarea").val('');
     $("textarea").focus();
-    $(".counter").css("color","black");
+    $(".counter").css("color", "black");
     $("#error").hide();
   }
   );
