@@ -17,7 +17,6 @@ $(document).ready(function() {
     }
     console.log('counter=', counter);
   });
-
   $("textarea").keyup(function() {
     console.log("this=", this);
     console.log('this.val', $(this).text().length);
