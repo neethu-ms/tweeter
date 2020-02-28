@@ -18,6 +18,10 @@
   text-align: center;
 }
 
+#profile-img-container{
+  padding:2%;
+}
+
 /* Styling Profile image and name below the navbar ends*/
 
 /* Display style for desktop */
