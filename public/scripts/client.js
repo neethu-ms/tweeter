@@ -99,6 +99,7 @@ const postTweets = function() {
         $("textarea").val('');
         $(".counter").text(140);
         $(".counter").css("color","black");
+        
       }
     });
   });
@@ -121,6 +122,7 @@ const toggle = function() {
     $(".new-tweet").slideToggle("slow");
     $(".counter").text(140);
     $("textarea").val('');
+    $("textarea").focus();
     $(".counter").css("color","black");
     $("#error").hide();
   }
