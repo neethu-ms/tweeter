@@ -97,6 +97,7 @@ const postTweets = function() {
       success: (data) => {
         loadtweets(); $("new-tweet").slideUp();
         $("textarea").val('');
+
       }
     });
   });
@@ -115,8 +116,10 @@ const loadtweets = function() {
 //Toggling function
 const toggle = function() {
   $(".new-tweet").slideUp();
-  $("#toggleButton").click(() =>
-    $(".new-tweet").slideToggle("slow")
+  $("#toggleButton").click(() => {
+    $(".new-tweet").slideToggle("slow");
+    $(".counter").text(140);
+  }
   );
 };
 
