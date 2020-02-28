@@ -65,6 +65,7 @@ article:hover {
 .tweetMessage > p {
   padding-bottom: 50px;
   width: 100%;
+  word-wrap: break-word;
 }
 
 /* Article footer*/
@@ -91,4 +92,8 @@ article:hover {
   #tweetContainer {
     margin-top: 0px;
   }
+ 
 }
+
+
+

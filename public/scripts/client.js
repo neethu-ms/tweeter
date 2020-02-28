@@ -5,7 +5,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
- 
+
 const findNumberOfDays = function(postedTime) {
   const currentTime = Date.now();
   let difference = currentTime - postedTime;
@@ -14,18 +14,22 @@ const findNumberOfDays = function(postedTime) {
 };
 
 
+
 //Rendering tweets
 const renderTweets = function(tweets) {
   // loops through tweets
-  console.log('rendering');
-  console.log('rendering');
   $("#tweetContainer").empty();
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
+
+
+  // sorting tweets based on created
+  tweets.sort((a, b) => {
+    return b['created_at'] - a['created_at'];
+  });
+
+
   for (let tweet of tweets) {
     let createdTweet = createTweetElement(tweet);
-    console.log("createdTweet=", $(createdTweet).text);
-    console.log($(createdTweet));
+
     $("#tweetContainer").append(createdTweet);
   }
 
@@ -94,7 +98,7 @@ const postTweets = function() {
       return;
     }
     /* Doing validations */
-    
+
     const url = "/tweets";
     $(".new-tweet").slideUp();
     $.ajax({
@@ -127,9 +131,9 @@ const toggle = function() {
   );
 };
 
+
 // Functions to be called after document is ready
 $(document).ready(() => {
-  $("error").hide();
   loadtweets();
   postTweets();
   toggle();
