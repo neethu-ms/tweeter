@@ -17,6 +17,13 @@ Tweeter is a simple, single-page Twitter clone. This will allow user to compose 
 4. Once the tweet is posted. It will be shown in the same page.
 5. Application is designed with responsive layout with a two column layout for desktop and single column layout for devices with lower width.
 
+## Final Product
+
+!["Compose Tweet"](docs/createTweet.png "Compose Tweet")
+!["Error Validation"](docs/ErrorValidation.png "Error Validation")
+!["Hovering Tweet"](docs/tweetHovering.png "Hovering Tweet")
+!["Desktop View"](docs/desktop.png "Desktop View")
+
 ## Dependencies
 
 - Express
