@@ -1,3 +1,4 @@
+// Find timestamp
 const findTime = function(postedTime) {
   const currentTime = Date.now();
   let difference = currentTime - postedTime;
@@ -7,17 +8,17 @@ const findTime = function(postedTime) {
     timeString += time.toFixed() + " days ago";
     return timeString;
   }
-  time = (difference / (1000 * 60 * 60));  //NUmber of hours
+  time = (difference / (1000 * 60 * 60));  //Number of hours
   if (time >= 1) {
     timeString += time.toFixed() + " hours ago";
     return timeString;
   }
-  time = (difference / (1000 * 60));  //NUmber of minutes
+  time = (difference / (1000 * 60));  //Number of minutes
   if (time >= 1) {
     timeString += time.toFixed() + "  minutes ago";
     return timeString;
   }
-  time = (difference / (1000));  //NUmber of seconds
+  time = (difference / (1000));  //Number of seconds
   if (time >= 1) {
     timeString += time.toFixed() + "  seconds ago";
     return timeString;
