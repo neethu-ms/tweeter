@@ -38,7 +38,7 @@ const createTweetElement = function(tweet) {
 	<hr/>
 	</div>
   <footer class="footer-details">
-	<p>${daysAgo} days ago</p>
+	<p>${daysAgo}</p>
 	<div>
 	<i class="fa fa-flag"></i>
 	<i class="fa fa-retweet"></i>
