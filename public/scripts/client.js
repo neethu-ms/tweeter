@@ -24,7 +24,7 @@ const renderTweets = function(tweets) {
 
 // Creating html code for tweet
 const createTweetElement = function(tweet) {
-  let daysAgo = findNumberOfDays(tweet['created_at']);
+  let daysAgo = findTime(tweet['created_at']);
   const article = `<article class="tweet"> 
   <header>
 <div class="image-details">

@@ -1,4 +1,4 @@
-const findNumberOfDays = function(postedTime) {
+const findTime = function(postedTime) {
   const currentTime = Date.now();
   let difference = currentTime - postedTime;
   let time = (difference / (1000 * 60 * 60 * 24));  //Number of days
@@ -23,7 +23,6 @@ const findNumberOfDays = function(postedTime) {
     return timeString;
   }
   timeString = "Just Now";
-  
   return timeString;
 };
 
@@ -42,6 +41,5 @@ const validateTweet = function(data) {
     $("#error").show();
     return false;
   }
-
   return true;
 };
