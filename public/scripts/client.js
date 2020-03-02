@@ -4,15 +4,11 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-const findNumberOfDays = function (postedTime) {
-  const currentTime = Date.now();
-  let difference = currentTime - postedTime;
-  let days = (difference / (1000 * 60 * 60 * 24)).toFixed();
-  return days;
-};
+
+
 
 //Rendering tweets
-const renderTweets = function (tweets) {
+const renderTweets = function(tweets) {
   // loops through tweets
   $("#tweet-container").empty();
   // sorting tweets based on created
@@ -27,67 +23,45 @@ const renderTweets = function (tweets) {
 };
 
 // Creating html code for tweet
-const createTweetElement = function (tweet) {
-  let $article = $('<article></article>');
-  let $header = $('<header></header>');
-  let $divImage = $("<div></div>");
-  let $pImage = $("<p></p>");
-  let $pTweetId = $("<p></p>");
-  let $divTweetBody = $("<div></div>");
-  let $pTweetMessage = $("<p></p>");
-  let $i = $('<i class="fa fa-flag"></i> <i class="fa fa-retweet"></i><i class="fa fa-heart"></i>');
-  let $footer = $("<footer></footer>");
-  let $pFooter = $("<p></p>");
-  let $divFooter = $("<div></div>");
-  let $img = $(`<img src="${tweet["user"].avatars}" height="100px" width="100px">`);
-  let $hr = $("<hr/>");
+const createTweetElement = function(tweet) {
   let daysAgo = findNumberOfDays(tweet['created_at']);
-  let daysAgoContent = `${daysAgo} days ago`;
-  $article.addClass("tweet");
-  $article.append($header);
-  $divImage.addClass('image-details');
-  $header.append($divImage);
-  $divImage.append($img);
-  $pImage.text(tweet["user"].name);
-  $divImage.append($pImage);
-  $pTweetId.addClass("tweet-id");
-  $pTweetId.text(tweet["user"].handle);
-  $header.append($pTweetId);
-  $divTweetBody.addClass('tweet-message');
-  $pTweetMessage.text(tweet["content"]["text"]);
-  $divTweetBody.append($pTweetMessage);
-  $divTweetBody.append($hr);
-  $article.append($divTweetBody);
-  $pFooter.text(daysAgoContent);
-  $footer.append($pFooter);
-  $divFooter.append($i);
-  $footer.append($divFooter);
-  $article.append($footer);
-  return $article;
+  const article = `<article class="tweet"> 
+  <header>
+<div class="image-details">
+  <img src="${tweet["user"].avatars}" height="100px" width="100px">
+	<p>${tweet["user"].name}</p>
+	</div>
+	<p class="tweet-id">${tweet["user"].handle}</p>
+	</header>
+	<div class="tweet-message"> 
+	<p>${tweet["content"]["text"]}</p>
+	<hr/>
+	</div>
+  <footer class="footer-details">
+	<p>${daysAgo} days ago</p>
+	<div>
+	<i class="fa fa-flag"></i>
+	<i class="fa fa-retweet"></i>
+	<i class="fa fa-heart"></i>
+	</div>
+	</footer>
+ </article>`;
+  return article;
 };
 
+
+
+
 // post tweets
-const postTweets = function () {
-  $("form").on("submit", function (event) {
+const postTweets = function() {
+  $("form").on("submit", function(event) {
     event.preventDefault();
     const data = $(this).serialize();
     $("#error").hide();
-    /* Doing validations */
-    if (data.substring(5) === undefined || data.substring(5) === null) {
-      $("#error").text('Invalid data. Please enter a value of length between 1 and 140');
-      $("#error").show();
-      return;
-    } else if (data.substring(5) === "") {
-      $("#error").text('Tweet cannot be empty. Please enter a value of length between 1 and 140');
-      $("#error").show();
-      return;
-    } else if (data.substring(5).length >= 140) {
-      $("#error").text('Too long. Please enter a value of length between 1 and 140');
-      $("#error").show();
+    //Doing validations 
+    if (!validateTweet(data)) {
       return;
     }
-    /* Doing validations */
-
     const url = "/tweets";
     $(".new-tweet").slideUp();
     $.ajax({
@@ -106,7 +80,7 @@ const postTweets = function () {
 };
 
 //Load tweets
-const loadtweets = function () {
+const loadtweets = function() {
   $.ajax({
     type: "GET",
     url: "/tweets",
@@ -116,7 +90,7 @@ const loadtweets = function () {
 };
 
 //Toggling function
-const toggle = function () {
+const toggle = function() {
   $(".new-tweet").slideUp();
   $("#toggle-button").click(() => {
     $(".new-tweet").slideToggle("slow");
@@ -128,8 +102,6 @@ const toggle = function () {
   }
   );
 };
-
-
 // Functions to be called after document is ready
 $(document).ready(() => {
   loadtweets();

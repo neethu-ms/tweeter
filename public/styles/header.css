@@ -28,6 +28,8 @@
 
 @media(min-width:1024px) {
   #profile-header {
-    width: 100%;
+    width: 30%;
   }
+
+  
 }
