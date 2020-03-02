@@ -36,7 +36,7 @@ const createTweetElement = function(tweet) {
 	<div class="tweet-message"> 
 	<p>${tweet["content"]["text"]}</p>
 	<hr/>
-	</div>
+	</div>  
   <footer class="footer-details">
 	<p>${daysAgo}</p>
 	<div>
@@ -48,9 +48,6 @@ const createTweetElement = function(tweet) {
  </article>`;
   return article;
 };
-
-
-
 
 // post tweets
 const postTweets = function() {

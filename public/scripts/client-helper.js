@@ -28,12 +28,12 @@ const findTime = function(postedTime) {
 
 //validate tweets
 const validateTweet = function(data) {
-  if (!data.substring(5)) {
-    $("#error").text('Invalid data. Please enter a value of length between 1 and 140');
+  if (data.substring(5) === "") {
+    $("#error").text('Tweet cannot be empty. Please enter a value of length between 1 and 140');
     $("#error").show();
     return false;
-  } else if (data.substring(5) === "") {
-    $("#error").text('Tweet cannot be empty. Please enter a value of length between 1 and 140');
+  } else if (!data.substring(5)) {
+    $("#error").text('Invalid data. Please enter a value of length between 1 and 140');
     $("#error").show();
     return false;
   } else if (data.substring(5).length > 140) {
